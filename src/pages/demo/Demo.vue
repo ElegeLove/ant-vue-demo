@@ -1,13 +1,16 @@
 <template>
-  <div class="new-page" :style="`min-height: ${pageMinHeight}px`">
+  <div class="newPage" :style="`min-height: ${pageMinHeight}px`">
     <h1>{{$t('content')}}</h1>
+    <TableSel />
   </div>
 </template>
 
 <script>
   import {mapState} from 'vuex'
+  import TableSel from '@/components/tableSel/TableSel'
   export default {
     name: 'Demo',
+    components: {TableSel},
     i18n: require('./i18n'),
     data() {
       return {

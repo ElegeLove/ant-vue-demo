@@ -79,7 +79,8 @@ module.exports = {
     }
     // if prod, add externals
     if (isProd) {
-      config.externals = assetsCDN.externals
+      config.externals = []
+      // config.externals = assetsCDN.externals
     }
   },
   chainWebpack: config => {
@@ -95,7 +96,8 @@ module.exports = {
     if (isProd) {
       config.plugin('html')
         .tap(args => {
-          args[0].cdn = assetsCDN
+          args[0].cdn = {}
+          // args[0].cdn = assetsCDN
         return args
       })
     }
@@ -110,7 +112,8 @@ module.exports = {
       }
     }
   },
-  publicPath: process.env.VUE_APP_PUBLIC_PATH,
+  publicPath: "./",
+  // publicPath: process.env.VUE_APP_PUBLIC_PATH,
   outputDir: 'dist',
   assetsDir: 'static',
   productionSourceMap: false
